@@ -11,5 +11,22 @@ def repeat(input, times=2)
 end
 
 def start_of_word(input, letters)
-	input[letters-1]
+	input[0..letters]
+end
+
+def first_word(input)
+	input.split(' ').first	
+end
+
+def titleize(input)
+	words = input.split(' ').map do |word|
+		if %w(the and over).include?(word)
+			word
+    	else
+      		word.capitalize
+    	end
+  	end
+  	words.first.capitalize!
+  	words.join(" ")
+	input.titleize
 end
